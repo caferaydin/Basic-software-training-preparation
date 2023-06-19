@@ -1,7 +1,7 @@
 ﻿using SmartPro.Business.Abstraction;
 using SmartPro.DataAccess.Abstraction;
-using SmartPro.DataAccess.Concrete.InMemory;
 using SmartPro.Entities.Concrete;
+using SmartPro.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +12,31 @@ namespace SmartPro.Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        IProductDao _productDao;
-        public ProductManager(IProductDao productDao)
+        IProductDal _productDal;
+
+        public ProductManager(IProductDal productDal)
         {
-            _productDao = productDao;
+            _productDal = productDal;
         }
-       
+
         public List<Product> GetAll()
         {
-            return _productDao.GetProducts();
+           return _productDal.GetAll();
+        }
+
+        public List<Product> GetAllByCategoryId(int id)
+        {
+            return _productDal.GetAll(p=> p.CategoryId == id);
+        }
+
+        public List<Product> GetByUnitPrice(decimal min, decimal max)
+        {
+            return _productDal.GetAll(p=> p.Price>=min && p.Price<=max);
+        }
+
+        public List<ProductDto> GetProductDtos()
+        {
+            return _productDal.GetProductDtos();
         }
     }
 }

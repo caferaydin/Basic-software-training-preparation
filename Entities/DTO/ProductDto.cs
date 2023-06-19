@@ -1,22 +1,21 @@
-﻿using SmartPro.Core.Entities;
-using SmartPro.Entities.Concrete.Common;
+﻿using SmartPro.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartPro.Entities.Concrete
+namespace SmartPro.Entities.DTO
 {
-    public class Product : BaseEntity, IEntity
+    public class ProductDto : IDto
     {
-        public int CategoryId { get; set; }
-        public int SubCategoryId { get; set; }
-        public int BrandId { get; set; }
+        public int Id { get; set; }
+        public string? CategoryName { get; set; }
+        public string? SubCategoryName { get; set; }
+        public string? BrandName { get; set; }
         public string? ProductName { get; set; }
         public string? ProductDescription { get; set; }
         public short Stock { get; set; }
         public decimal Price { get; set; }
-
     }
 }
