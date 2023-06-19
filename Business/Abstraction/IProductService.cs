@@ -11,9 +11,13 @@ namespace SmartPro.Business.Abstraction
     public interface IProductService
     {
         List<Product> GetAll();
+        Product GetById(int id);
         List<Product> GetAllByCategoryId(int id);
-        List<Product> GetByUnitPrice(decimal min, decimal max);
+        List<Product> GetByPrice(decimal min, decimal max);
         public List<ProductDto> GetProductDtos();
+        void AddProduct(Product product);
+        void UpdateProduct(Product product);
+        void DeleteProduct(Product product);
 
     }
 }

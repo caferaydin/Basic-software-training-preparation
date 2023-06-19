@@ -12,6 +12,8 @@ namespace SmartPro.Business.Abstraction
         List<SubCategory> GetSubCategories();
         SubCategory GetById(int id);
         void AddSubCategory(SubCategory subCategory);
+        void SubCategoryUpdate(SubCategory subCategory);
+        void SubCategoryDelete(SubCategory subCategory);
 
     }
 }

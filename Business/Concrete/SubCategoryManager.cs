@@ -32,5 +32,20 @@ namespace SmartPro.Business.Concrete
         {
             return _subCategory.GetAll();
         }
+
+        public void SubCategoryDelete(SubCategory subCategory)
+        {
+            var result = _subCategory.GetAll(s => s.Id == subCategory.Id).Count;
+            if (result > 0)
+                _subCategory.Delete(subCategory);
+
+        }
+
+        public void SubCategoryUpdate(SubCategory subCategory)
+        {
+            var result = _subCategory.GetAll(s=> s.Id == subCategory.Id).Count;
+            if(result > 0)
+                _subCategory.Update(subCategory);
+        }
     }
 }

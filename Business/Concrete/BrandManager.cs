@@ -23,11 +23,6 @@ namespace SmartPro.Business.Concrete
             _brandDal.Add(category);
         }
 
-        public void Delete(Brand brand)
-        {
-            _brandDal.Delete(brand);
-        }
-
         public Brand GetById(int id)
         {
             return _brandDal.Get(b=> b.Id == id);
@@ -38,9 +33,19 @@ namespace SmartPro.Business.Concrete
             return _brandDal.GetAll();
         }
 
-        public void Update(Brand category)
+
+        public void UpdateBrand(Brand brand)
         {
-            throw new NotImplementedException();
+            var result = _brandDal.GetAll(b=>b.Id == brand.Id).Count;
+            if (result > 0)
+                _brandDal.Update(brand);
+        }
+
+        public void DeleteBrand(Brand brand)
+        {
+            var result = _brandDal.GetAll(b=>b.Id == brand.Id).Count;
+            if(result > 0)
+                _brandDal.Delete(brand);
         }
     }
 }

@@ -21,22 +21,46 @@ namespace SmartPro.Business.Concrete
 
         public List<Product> GetAll()
         {
-           return _productDal.GetAll();
+            return _productDal.GetAll();
         }
 
         public List<Product> GetAllByCategoryId(int id)
         {
-            return _productDal.GetAll(p=> p.CategoryId == id);
+            return _productDal.GetAll(p => p.CategoryId == id);
         }
 
-        public List<Product> GetByUnitPrice(decimal min, decimal max)
+        public Product GetById(int id)
         {
-            return _productDal.GetAll(p=> p.Price>=min && p.Price<=max);
+            return _productDal.Get(p => p.Id == id);
+        }
+
+        public List<Product> GetByPrice(decimal min, decimal max)
+        {
+            return _productDal.GetAll(p => p.Price >= min && p.Price <= max);
         }
 
         public List<ProductDto> GetProductDtos()
         {
             return _productDal.GetProductDtos();
         }
+
+        public void AddProduct(Product product)
+        {
+            _productDal.Add(product);
+        }
+        public void UpdateProduct(Product product)
+        {
+            var result = _productDal.GetAll(p => p.Id == product.Id).Count;
+            if (result > 0)
+                _productDal.Update(product);
+        }
+        public void DeleteProduct(Product product)
+        {
+            var result = _productDal.GetAll(p=>p.Id == product.Id).Count;
+            if (result > 0) 
+                _productDal.Delete(product);
+        }
+
+        
     }
 }

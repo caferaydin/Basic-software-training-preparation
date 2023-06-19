@@ -16,25 +16,37 @@ namespace SmartPro.API.Controllers
             _brandService = brandService;
         }
 
-        [HttpGet("GetAll")]
-        public IActionResult Get()
+        [HttpGet("getAll")]
+        public IActionResult GetAll()
         {
             var brands = _brandService.GetBrands();
             return Ok(brands);
         }
 
         [HttpGet("getById/{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetById(int id)
         {
             var result = _brandService.GetById(id);
-            return Ok(result);
+            return Ok(result.BrandName);
         }
 
         [HttpPost("addBrand")]
-        public IActionResult Get(Brand brand)
+        public IActionResult AddBrand(Brand brand)
         {
             _brandService.AddBrand(brand);
-            return Ok(brand);
+            return Ok(brand.BrandName);
+        }
+        [HttpPut("updateBrand")]
+        public IActionResult UpdateBrand(Brand brand)
+        {
+            _brandService.UpdateBrand(brand);
+            return Ok(brand.BrandName);
+        }
+        [HttpDelete("deleteBrand")]
+        public IActionResult DeleteBrand(Brand brand) 
+        {
+            _brandService.DeleteBrand(brand);
+            return Ok(brand.BrandName);
         }
     }
 }

@@ -19,10 +19,15 @@ namespace SmartPro.Business.Extensions
         {
             services.AddScoped<ICategoryDal, EfCategoryDal>();
             services.AddScoped<ICategoryService, CategoryManager>();
+
             services.AddScoped<ISubCategoryDal, EfSubCategoryDal>();
             services.AddScoped<ISubCategoryService, SubCategoryManager>();
+
             services.AddScoped<IBrandDal, EfBrandDal>();
             services.AddScoped<IBrandService, BrandManager>();
+
+            services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<IProductService, ProductManager>();
         }
     }
 }

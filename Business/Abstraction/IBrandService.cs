@@ -11,8 +11,8 @@ namespace SmartPro.Business.Abstraction
     {
         List<Brand> GetBrands();
         Brand GetById(int id);
-        void AddBrand(Brand category);
-        void Update(Brand category);
-        void Delete(Brand brand);
+        void AddBrand(Brand brand);
+        void UpdateBrand(Brand brand);
+        void DeleteBrand(Brand brand);
     }
 }

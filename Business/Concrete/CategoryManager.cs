@@ -24,9 +24,11 @@ namespace SmartPro.Business.Concrete
         }
 
 
-        public void Delete(int id)
+        public void Delete(Category category)
         {
-            throw new NotImplementedException();
+            var result = _categoryDal.GetAll(c=> c.Id == category.Id).Count;
+            if(result > 0) 
+                _categoryDal.Delete(category);
         }
 
         public Category GetById(int id)
@@ -41,7 +43,10 @@ namespace SmartPro.Business.Concrete
 
         public void Update(Category category)
         {
-            throw new NotImplementedException();
+            var result = _categoryDal.GetAll(c=> c.Id == category.Id).Count;
+            if(result > 0) 
+                _categoryDal.Update(category);
+            
         }
     }
 }

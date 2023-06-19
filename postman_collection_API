@@ -1,0 +1,723 @@
+{
+	"info": {
+		"_postman_id": "184c451a-cfde-4019-9b59-8bb28364130d",
+		"name": "SmartPro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27980281",
+		"_collection_link": "https://catechsoft.postman.co/workspace/Team-Workspace~90b2d4c8-65aa-4a1d-80ab-41b57d8b1c9b/collection/27980281-184c451a-cfde-4019-9b59-8bb28364130d?action=share&creator=27980281&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/getAll",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/getAllByCategory/1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"getAllByCategory",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/getById/1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"getById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByPrice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/getByPrice/50-500",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"getByPrice",
+								"50-500"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductDetail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/getProductDetail?categoryId=1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"getProductDetail"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryId\": 1,\r\n    \"subCategoryId\": 1,\r\n    \"brandId\": 1,\r\n    \"productName\": \"A-80\",\r\n    \"productDescription\": \"8 gb Ram i3 işlemci\",\r\n    \"stock\": 5,\r\n    \"price\": 1000,\r\n    \"createdAt\": \"2023-06-19T23:33:45.307Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/addProduct",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"categoryId\": 1,\r\n    \"subCategoryId\": 1,\r\n    \"brandId\": 1,\r\n    \"productName\": \"Tablet Sony 1\",\r\n    \"productDescription\": \"8 gb Ram i3 işlemci\",\r\n    \"stock\": 5,\r\n    \"price\": 1000,\r\n    \"createdAt\": \"2023-06-19T23:33:45.307Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/updateProduct",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"updateProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"categoryId\": 1,\r\n    \"subCategoryId\": 1,\r\n    \"brandId\": 1,\r\n    \"productName\": \"Tablet Sony 1\",\r\n    \"productDescription\": \"8 gb Ram i3 işlemci\",\r\n    \"stock\": 5,\r\n    \"price\": 1000,\r\n    \"createdAt\": \"2023-06-19T23:33:45.307Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Products/updateProduct",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Products",
+								"updateProduct"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "SubCategory",
+					"item": [
+						{
+							"name": "getAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://127.0.0.1:7117/api/SubCategories/GetAll",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "7117",
+									"path": [
+										"api",
+										"SubCategories",
+										"GetAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://127.0.0.1:7117/api/SubCategories/getById/1",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "7117",
+									"path": [
+										"api",
+										"SubCategories",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addSubCategory",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryId\" : 1,\r\n    \"subCategoryName\" : \"Telefon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:7117/api/SubCategories/addSubCategory",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "7117",
+									"path": [
+										"api",
+										"SubCategories",
+										"addSubCategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateSubCategory",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Id\" : 1,\r\n    \"categoryId\" : 1,\r\n    \"subCategoryName\" : \"Tablet\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:7117/api/SubCategories/updateSubCategory",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "7117",
+									"path": [
+										"api",
+										"SubCategories",
+										"updateSubCategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteSubCategory",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Id\" : 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:7117/api/SubCategories/deleteSubCategory",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "7117",
+									"path": [
+										"api",
+										"SubCategories",
+										"deleteSubCategory"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Categories/getAll",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Categories",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryName\" : \"Ev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Categories/AddCategory",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Categories",
+								"AddCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\" : 3,\r\n    \"categoryName\" : \"Evet\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Categories/updateCategory/3",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Categories",
+								"updateCategory",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Categories/deleteCategory",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Categories",
+								"deleteCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryName\" : \"Moda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Categories/getById/1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Categories",
+								"getById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Brands/getAll",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Brands",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Brands/getById/",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Brands",
+								"getById",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addBrand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brandName\": \"Sony\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Brands/addBrand",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Brands",
+								"addBrand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addBrand Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"brandName\": \"Pull & Bear\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Brands/updateBrand",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Brands",
+								"updateBrand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBrand",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:7117/api/Brands/deleteBrand",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7117",
+							"path": [
+								"api",
+								"Brands",
+								"deleteBrand"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

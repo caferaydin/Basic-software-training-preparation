@@ -13,7 +13,7 @@ namespace SmartPro.Business.Abstraction
         Category GetById(int id);
         void AddCategory(Category category);
         void Update(Category category);
-        void Delete(int id);
+        void Delete(Category category);
 
 
 
