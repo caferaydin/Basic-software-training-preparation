@@ -27,7 +27,7 @@ namespace SmartPro.API.Controllers
         public IActionResult GetById(int id)
         {
             var result = _brandService.GetById(id);
-            return Ok(result.BrandName);
+            return Ok(result);
         }
 
         [HttpPost("addBrand")]

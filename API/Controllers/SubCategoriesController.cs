@@ -26,14 +26,14 @@ namespace SmartPro.API.Controllers
         public IActionResult GetById(int id)
         { 
             var subCategory = _subCategoryService.GetById(id);
-            return Ok(subCategory.SubCategoryName);
+            return Ok(subCategory);
         }
         [HttpPost("addSubCategory")]
         public IActionResult AddSubCategory(SubCategory subCategory)
         {
             _subCategoryService.AddSubCategory(subCategory);
 
-            return Ok(subCategory.SubCategoryName);
+            return Ok(subCategory);
         }
         [HttpPut("updateSubCategory")]
         public IActionResult UpdateSubCategory(SubCategory subCategory)

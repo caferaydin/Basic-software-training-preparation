@@ -1,4 +1,5 @@
-﻿using SmartPro.Entities.Concrete;
+﻿using SmartPro.Core.Utilities.Result;
+using SmartPro.Entities.Concrete;
 using SmartPro.Entities.DTO;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,14 @@ namespace SmartPro.Business.Abstraction
 {
     public interface IProductService
     {
-        List<Product> GetAll();
-        Product GetById(int id);
-        List<Product> GetAllByCategoryId(int id);
-        List<Product> GetByPrice(decimal min, decimal max);
-        public List<ProductDto> GetProductDtos();
-        void AddProduct(Product product);
-        void UpdateProduct(Product product);
-        void DeleteProduct(Product product);
+        IDataResult<List<Product>> GetAll();
+        IDataResult<Product> GetById(int id);
+        IDataResult<List<Product>> GetAllByCategoryId(int id);
+        IDataResult<List<Product>> GetByPrice(decimal min, decimal max);
+        IDataResult<List<ProductDto>> GetProductDtos();
+        IResult AddProduct(Product product);
+        IResult UpdateProduct(Product product);
+        IResult DeleteProduct(Product product);
 
     }
 }

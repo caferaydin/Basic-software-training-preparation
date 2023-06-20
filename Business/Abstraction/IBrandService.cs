@@ -1,4 +1,5 @@
-﻿using SmartPro.Entities.Concrete;
+﻿using SmartPro.Core.Utilities.Result;
+using SmartPro.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace SmartPro.Business.Abstraction
 {
     public interface IBrandService
     {
-        List<Brand> GetBrands();
-        Brand GetById(int id);
-        void AddBrand(Brand brand);
-        void UpdateBrand(Brand brand);
-        void DeleteBrand(Brand brand);
+        IDataResult<List<Brand>> GetBrands();
+        IDataResult<Brand> GetById(int id);
+        IResult AddBrand(Brand brand);
+        IResult UpdateBrand(Brand brand);
+        IResult DeleteBrand(Brand brand);
     }
 }

@@ -1,4 +1,5 @@
-﻿using SmartPro.Entities.Concrete;
+﻿using SmartPro.Core.Utilities.Result;
+using SmartPro.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace SmartPro.Business.Abstraction
 {
     public interface ICategoryService
     {
-        List<Category> GetCategories();
-        Category GetById(int id);
-        void AddCategory(Category category);
-        void Update(Category category);
-        void Delete(Category category);
+        IDataResult<List<Category>> GetCategories();
+        IDataResult<Category> GetById(int id);
+        IResult AddCategory(Category category);
+        IResult Update(Category category);
+        IResult Delete(Category category);
 
 
 

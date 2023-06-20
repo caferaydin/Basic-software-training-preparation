@@ -26,7 +26,7 @@ namespace SmartPro.API.Controllers
         public IActionResult GetById(int id)
         {
             var category = _categoryService.GetById(id);
-            return Ok(category.CategoryName);
+            return Ok(category);
         }
 
         [HttpPost("addCategory")]
@@ -34,21 +34,21 @@ namespace SmartPro.API.Controllers
         {
             _categoryService.AddCategory(category);
 
-            return Ok(category.CategoryName);
+            return Ok(category);
         }
 
         [HttpPut("updateCategory/{id}")]
         public IActionResult updateCategory(Category category, int id)
         {
             _categoryService.Update(category);
-            return Ok(category.CategoryName);
+            return Ok(category);
         }
 
         [HttpDelete("deleteCategory")]
         public IActionResult DeleteCategory(Category category)
         {
             _categoryService.Delete(category);
-            return Ok(category.CategoryName);
+            return Ok(category);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SmartPro.Business.Abstraction;
+using SmartPro.Core.Utilities.Result;
 using SmartPro.DataAccess.Abstraction;
 using SmartPro.Entities.Concrete;
 using SmartPro.Entities.DTO;
@@ -19,46 +20,49 @@ namespace SmartPro.Business.Concrete
             _productDal = productDal;
         }
 
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetAll();
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(), "List of Product");
         }
 
-        public List<Product> GetAllByCategoryId(int id)
+        public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
-            return _productDal.GetAll(p => p.CategoryId == id);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == id), "List of Product in Category");
         }
 
-        public Product GetById(int id)
+        public IDataResult<Product> GetById(int id)
         {
-            return _productDal.Get(p => p.Id == id);
+            return new SuccessDataResult<Product>(_productDal.Get(p => p.Id == id), "Product listed");
         }
 
-        public List<Product> GetByPrice(decimal min, decimal max)
+        public IDataResult<List<Product>> GetByPrice(decimal min, decimal max)
         {
-            return _productDal.GetAll(p => p.Price >= min && p.Price <= max);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.Price >= min && p.Price <= max), "Filtered products listed");
         }
 
-        public List<ProductDto> GetProductDtos()
+        public IDataResult<List<ProductDto>> GetProductDtos()
         {
-            return _productDal.GetProductDtos();
+            return new SuccessDataResult<List<ProductDto>>(_productDal.GetProductDtos(), "Get Product Listed");
         }
 
-        public void AddProduct(Product product)
+        public IResult AddProduct(Product product)
         {
             _productDal.Add(product);
+            return new SuccessResult("Added!");
         }
-        public void UpdateProduct(Product product)
+        public IResult UpdateProduct(Product product)
         {
             var result = _productDal.GetAll(p => p.Id == product.Id).Count;
             if (result > 0)
                 _productDal.Update(product);
+            return new SuccessResult("Updated");
         }
-        public void DeleteProduct(Product product)
+        public IResult DeleteProduct(Product product)
         {
             var result = _productDal.GetAll(p=>p.Id == product.Id).Count;
             if (result > 0) 
                 _productDal.Delete(product);
+            return new SuccessResult("Deleted");
         }
 
         

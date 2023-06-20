@@ -1,4 +1,5 @@
 ﻿using SmartPro.Business.Abstraction;
+using SmartPro.Core.Utilities.Result;
 using SmartPro.DataAccess.Abstraction;
 using SmartPro.Entities.Concrete;
 using System;
@@ -18,34 +19,35 @@ namespace SmartPro.Business.Concrete
             _brandDal = brandDal;
         }
 
-        public void AddBrand(Brand category)
+        public IDataResult<List<Brand>> GetBrands()
+        {
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
+        }
+        public IDataResult<Brand> GetById(int id)
+        {
+            return new SuccessDataResult<Brand>(_brandDal.Get(b=> b.Id == id));
+        }
+
+        public IResult AddBrand(Brand category)
         {
             _brandDal.Add(category);
+            return new SuccessResult("Added!");
         }
 
-        public Brand GetById(int id)
-        {
-            return _brandDal.Get(b=> b.Id == id);
-        }
-
-        public List<Brand> GetBrands()
-        {
-            return _brandDal.GetAll();
-        }
-
-
-        public void UpdateBrand(Brand brand)
+        public IResult UpdateBrand(Brand brand)
         {
             var result = _brandDal.GetAll(b=>b.Id == brand.Id).Count;
             if (result > 0)
                 _brandDal.Update(brand);
+            return new SuccessResult("Updated!");
         }
 
-        public void DeleteBrand(Brand brand)
+        public IResult DeleteBrand(Brand brand)
         {
             var result = _brandDal.GetAll(b=>b.Id == brand.Id).Count;
             if(result > 0)
                 _brandDal.Delete(brand);
+            return new SuccessResult("Deleted");
         }
     }
 }
