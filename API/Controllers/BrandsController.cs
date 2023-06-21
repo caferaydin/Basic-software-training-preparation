@@ -34,13 +34,13 @@ namespace SmartPro.API.Controllers
         public IActionResult AddBrand(Brand brand)
         {
             _brandService.AddBrand(brand);
-            return Ok(brand.BrandName);
+            return Ok(brand);
         }
         [HttpPut("updateBrand")]
         public IActionResult UpdateBrand(Brand brand)
         {
             _brandService.UpdateBrand(brand);
-            return Ok(brand.BrandName);
+            return Ok(brand);
         }
         [HttpDelete("deleteBrand")]
         public IActionResult DeleteBrand(Brand brand) 

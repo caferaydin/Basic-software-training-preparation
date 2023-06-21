@@ -25,7 +25,7 @@ namespace SmartPro.Business.Concrete
         {
             return new SuccessDataResult<Category>(_categoryDal.Get(c => c.Id == id));
         }
-        [SecuredOperation("product.add, admin")]
+        //[SecuredOperation("product.add, admin")]
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult AddCategory(Category category)
         {

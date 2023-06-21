@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartPro.Core.Utilities.Result
+﻿namespace SmartPro.Core.Utilities.Result
 {
     public class SuccessDataResult<T> : DataResult<T>
     {
