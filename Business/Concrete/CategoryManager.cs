@@ -1,12 +1,10 @@
 ﻿using SmartPro.Business.Abstraction;
+using SmartPro.Business.Rules.Validation.Fluent;
+using SmartPro.Core.Aspects.Attributes.Validation;
+using SmartPro.Core.CrossCuttingConcerns.Validation;
 using SmartPro.Core.Utilities.Result;
 using SmartPro.DataAccess.Abstraction;
 using SmartPro.Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartPro.Business.Concrete
 {
@@ -26,8 +24,10 @@ namespace SmartPro.Business.Concrete
         {
             return new SuccessDataResult<Category>(_categoryDal.Get(c => c.Id == id));
         }
+        [ValidationAspect(typeof(CategoryValidator))]
         public IResult AddCategory(Category category)
         {
+            //ValidationTool.Validate(new CategoryValidator(), category);
             _categoryDal.Add(category);
             return new SuccessResult("Added");
         }

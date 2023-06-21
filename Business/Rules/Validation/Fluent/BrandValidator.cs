@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace SmartPro.Business.Rules.Validation.Fluent
 {
-    public class CategoryValidator : AbstractValidator<Category>
+    public class BrandValidator : AbstractValidator<Brand>
     {
-        public CategoryValidator()
+        public BrandValidator()
         {
-            RuleFor(c => c.CategoryName).NotEmpty();
-            RuleFor(c => c.CategoryName).MinimumLength(2);
+            RuleFor(b => b.BrandName).NotEmpty();
+            RuleFor(b => b.BrandName).MinimumLength(2);
+
         }
     }
 }

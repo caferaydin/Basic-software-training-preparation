@@ -17,17 +17,21 @@ namespace SmartPro.Business.DependecyResolvers
     {
         public static void AddPersistanceRegistration(this IServiceCollection services)
         {
-            services.AddSingleton<ICategoryDal, EfCategoryDal>();
-            services.AddSingleton<ICategoryService, CategoryManager>();
+            //services.AddSingleton<ICategoryDal, EfCategoryDal>();
+            //services.AddSingleton<ICategoryService, CategoryManager>();
 
-            services.AddSingleton<ISubCategoryDal, EfSubCategoryDal>();
-            services.AddSingleton<ISubCategoryService, SubCategoryManager>();
+            //services.AddSingleton<ISubCategoryDal, EfSubCategoryDal>();
+            //services.AddSingleton<ISubCategoryService, SubCategoryManager>();
 
-            services.AddSingleton<IBrandDal, EfBrandDal>();
-            services.AddSingleton<IBrandService, BrandManager>();
+            //services.AddSingleton<IBrandDal, EfBrandDal>();
+            //services.AddSingleton<IBrandService, BrandManager>();
 
-            services.AddSingleton<IProductDal, EfProductDal>();
-            services.AddSingleton<IProductService, ProductManager>();
+            //services.AddSingleton<IProductDal, EfProductDal>();
+            //services.AddSingleton<IProductService, ProductManager>();
+
+            //var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+
+            
         }
     }
 }
