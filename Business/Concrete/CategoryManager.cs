@@ -1,4 +1,5 @@
 ﻿using SmartPro.Business.Abstraction;
+using SmartPro.Business.BusinessAspects.Autofac;
 using SmartPro.Business.Rules.Validation.Fluent;
 using SmartPro.Core.Aspects.Attributes.Validation;
 using SmartPro.Core.CrossCuttingConcerns.Validation;
@@ -24,6 +25,7 @@ namespace SmartPro.Business.Concrete
         {
             return new SuccessDataResult<Category>(_categoryDal.Get(c => c.Id == id));
         }
+        [SecuredOperation("product.add, admin")]
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult AddCategory(Category category)
         {

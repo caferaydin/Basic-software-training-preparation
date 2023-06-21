@@ -1,20 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using SmartPro.Business.Abstraction;
-using SmartPro.Business.Concrete;
-using SmartPro.DataAccess.Abstraction;
-using SmartPro.DataAccess.Concrete.EntityFramework;
-using SmartPro.DataAccess.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace SmartPro.Business.DependecyResolvers
 {
     public static class ServiceRegistration
     {
+        
         public static void AddPersistanceRegistration(this IServiceCollection services)
         {
             //services.AddSingleton<ICategoryDal, EfCategoryDal>();
@@ -31,7 +21,8 @@ namespace SmartPro.Business.DependecyResolvers
 
             //var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
-            
+
         }
+
     }
 }

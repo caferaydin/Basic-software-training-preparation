@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartPro.Core.Entities.Concrete.Roles;
 using SmartPro.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,5 +21,8 @@ namespace SmartPro.DataAccess.Contexts
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 }
