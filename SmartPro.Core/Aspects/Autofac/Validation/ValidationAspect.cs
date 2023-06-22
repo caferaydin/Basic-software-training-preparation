@@ -3,7 +3,7 @@ using FluentValidation;
 using SmartPro.Core.CrossCuttingConcerns.Validation;
 using SmartPro.Core.Utilities.Interceptors;
 
-namespace SmartPro.Core.Aspects.Attributes.Validation
+namespace SmartPro.Core.Aspects.Autofac.Validation
 {
     public class ValidationAspect : MethodInterception
     {
@@ -12,7 +12,7 @@ namespace SmartPro.Core.Aspects.Attributes.Validation
         {
             if (!typeof(IValidator).IsAssignableFrom(validatorType))
             {
-                throw new System.Exception("ValidationAspect Exception.");
+                throw new Exception("ValidationAspect Exception.");
             }
 
             _validatorType = validatorType;

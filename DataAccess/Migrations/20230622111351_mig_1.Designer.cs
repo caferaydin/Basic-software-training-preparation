@@ -12,7 +12,7 @@ using SmartPro.DataAccess.Contexts;
 namespace SmartPro.DataAccess.Migrations
 {
     [DbContext(typeof(MsSqlDbContext))]
-    [Migration("20230621222035_mig_1")]
+    [Migration("20230622111351_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -27,9 +27,11 @@ namespace SmartPro.DataAccess.Migrations
 
             modelBuilder.Entity("SmartPro.Core.Entities.Concrete.Roles.OperationClaim", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -41,9 +43,11 @@ namespace SmartPro.DataAccess.Migrations
 
             modelBuilder.Entity("SmartPro.Core.Entities.Concrete.Roles.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -76,11 +80,11 @@ namespace SmartPro.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<Guid>("OperationClaimId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("OperationClaimId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

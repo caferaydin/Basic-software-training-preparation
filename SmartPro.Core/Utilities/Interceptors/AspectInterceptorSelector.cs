@@ -1,4 +1,5 @@
 ﻿using Castle.DynamicProxy;
+using SmartPro.Core.Aspects.Autofac.Performance;
 using System.Reflection;
 
 namespace SmartPro.Core.Utilities.Interceptors
@@ -12,6 +13,7 @@ namespace SmartPro.Core.Utilities.Interceptors
             var methodAttributes = type.GetMethod(method.Name)
                 .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
             classAttributes.AddRange(methodAttributes);
+            //classAttributes.Add(new PerformanceAspect());
             //classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger)));
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();

@@ -1,10 +1,14 @@
 ﻿using Autofac;
+using Autofac.Core;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Caching.Memory;
 using SmartPro.Business.Abstraction;
 using SmartPro.Business.Abstraction.Auth;
 using SmartPro.Business.Concrete;
 using SmartPro.Business.Concrete.Auth;
+using SmartPro.Core.CrossCuttingConcerns.Caching;
 using SmartPro.Core.Utilities.Interceptors;
 using SmartPro.Core.Utilities.Security.JWT;
 using SmartPro.DataAccess.Abstraction;
@@ -33,6 +37,9 @@ namespace SmartPro.Business.DependencyResolvers
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+
+
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

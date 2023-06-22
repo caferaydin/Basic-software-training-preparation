@@ -1,8 +1,18 @@
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using SmartPro.Business.DependencyResolvers;
+using SmartPro.Core.CrossCuttingConcerns.Caching.Microsoft;
+using SmartPro.Core.DependencyResolvers;
+using SmartPro.Core.Extensions;
+using SmartPro.Core.Utilities.IoC;
+using SmartPro.Core.Utilities.Security.Encryption;
+using SmartPro.Core.Utilities.Security.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Autofac .Net 6 IoC Configuration 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
@@ -12,11 +22,30 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     });
 
 
-// Add services to the container. .Net IoC
+var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-//builder.Services.AddPersistanceRegistration();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidIssuer = tokenOptions.Issuer,
+                        ValidAudience = tokenOptions.Audience,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                    };
+                });
 
+builder.Services.AddDependencyResolvers(
+    new ICoreModule[]
+    {
+        new CoreModule()
+    });
 
+ServiceTool.Create(builder.Services);
 
 
 
@@ -25,22 +54,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//                .AddJwtBearer(options =>
-//                {
-//                    options.TokenValidationParameters = new TokenValidationParameters
-//                    {
-//                        ValidateIssuer = true,
-//                        ValidateAudience = true,
-//                        ValidateLifetime = true,
-//                        ValidIssuer = tokenOptions.Issuer,
-//                        ValidAudience = tokenOptions.Audience,
-//                        ValidateIssuerSigningKey = true,
-//                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-//                    };
-//                });
 
 var app = builder.Build();
 
@@ -53,7 +66,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
+app.UseAuthentication(); // added   
 
 app.UseAuthorization();
 
