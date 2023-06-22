@@ -2,6 +2,7 @@
 using SmartPro.Business.BusinessAspects.Autofac;
 using SmartPro.Business.Rules.Validation.Fluent;
 using SmartPro.Core.Aspects.Autofac.Caching;
+using SmartPro.Core.Aspects.Autofac.Performance;
 using SmartPro.Core.Aspects.Autofac.Validation;
 using SmartPro.Core.Utilities.Result;
 using SmartPro.DataAccess.Abstraction;
@@ -17,18 +18,21 @@ namespace SmartPro.Business.Concrete
         {
             _categoryDal = categoryDal;
         }
+        [PerformanceAspect(10)]
         [CacheAspect]
         public IDataResult<List<Category>> GetCategories()
         {
             return new SuccessDataResult<List<Category>>(_categoryDal.GetAll(), "List of Category");
         }
+        [PerformanceAspect(5)]
         [CacheAspect]
         public IDataResult<Category> GetById(int id)
         {
             return new SuccessDataResult<Category>(_categoryDal.Get(c => c.Id == id));
         }
 
-        [SecuredOperation("CustomerProductAdd,Admin")]
+
+        [SecuredOperation("CategoryManager,Admin")]
         [CacheRemoveAspect("ICategoryService.Get")]
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult AddCategory(Category category)
@@ -37,8 +41,8 @@ namespace SmartPro.Business.Concrete
             return new SuccessResult("Added");
         }
 
-        [SecuredOperation("CustomerProductAdd,Admin")]
-        //[CacheRemoveAspect("ICategoryService.Get")]
+        [SecuredOperation("CategoryManager,Admin")]
+        [CacheRemoveAspect("ICategoryService.Get")]
         public IResult Update(Category category)
         {
             var result = _categoryDal.GetAll(c=> c.Id == category.Id).Count;
@@ -47,8 +51,8 @@ namespace SmartPro.Business.Concrete
             return new SuccessResult("Updated");
 
         }
-        [SecuredOperation("CustomerProductAdd,Admin")]
-        //[CacheRemoveAspect("ICategoryService.Get")]
+        [SecuredOperation("CategoryManager,Admin")]
+        [CacheRemoveAspect("ICategoryService.Get")]
         public IResult Delete(Category category)
         {
             var result = _categoryDal.GetAll(c => c.Id == category.Id).Count;
