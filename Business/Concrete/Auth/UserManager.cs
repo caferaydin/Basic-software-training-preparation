@@ -1,5 +1,8 @@
 ﻿using SmartPro.Business.Abstraction.Auth;
+using SmartPro.Business.BusinessAspects.Autofac;
+using SmartPro.Core.Aspects.Autofac.Caching;
 using SmartPro.Core.Entities.Concrete.Roles;
+using SmartPro.Core.Utilities.Result;
 using SmartPro.DataAccess.Abstraction;
 
 namespace SmartPro.Business.Concrete.Auth
@@ -26,6 +29,12 @@ namespace SmartPro.Business.Concrete.Auth
         public User GetByMail(string email)
         {
             return _userDal.Get(u => u.Email == email);
+        }
+
+        [SecuredOperation("Admin")]
+        public IDataResult<List<User>> GetAllUser()
+        {
+            return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
     }
 }

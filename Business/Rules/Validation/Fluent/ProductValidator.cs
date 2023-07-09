@@ -8,7 +8,6 @@ namespace SmartPro.Business.Rules.Validation.Fluent
         public ProductValidator()
         {
             RuleFor(p => p.CategoryId).NotEmpty();
-            RuleFor(p => p.SubCategoryId).NotEmpty();
             RuleFor(p => p.BrandId).NotEmpty();
             RuleFor(p => p.ProductName).NotEmpty();
             RuleFor(p => p.ProductName).MinimumLength(2);

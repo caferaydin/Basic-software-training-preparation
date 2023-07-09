@@ -5,7 +5,7 @@ using SmartPro.Entities.Concrete;
 namespace SmartPro.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController] // 127.0.0.1:7117/api/products/furkan
     public class ProductsController : ControllerBase
     {
         IProductService _productService;
@@ -20,17 +20,25 @@ namespace SmartPro.API.Controllers
             var products = _productService.GetAll();
             return Ok(products);
         }
-        [HttpGet("getAllByCategory/{id}")]
+        [HttpGet("getAllByCategory")]
         public IActionResult GetByCategoryId(int id)
         {
             var result = _productService.GetAllByCategoryId(id);
-            return Ok(result);
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
         }
         [HttpGet("getById/{id}")]
         public IActionResult GetById(int id)
         {
             var result = _productService.GetById(id);
-            return Ok(result);
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
         }
         [HttpGet("getByPrice/{min}-{max}")]
         public IActionResult GetByPrice(decimal min, decimal max=999999)
@@ -62,6 +70,13 @@ namespace SmartPro.API.Controllers
         {
             _productService.DeleteProduct(product);
             return Ok(product);
+        }
+
+        [HttpGet("furkan")]
+        public IActionResult Furkan()
+        {
+            var result = "FURKAN AYDIN";
+            return Ok(result);
         }
     }
 }

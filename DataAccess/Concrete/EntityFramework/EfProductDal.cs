@@ -15,8 +15,6 @@ namespace SmartPro.DataAccess.Concrete.EntityFramework
                 var result = from p in context.Products
                              join c in context.Categories
                              on p.CategoryId equals c.Id
-                             join s in context.SubCategories
-                             on p.SubCategoryId equals s.Id
                              join b in context.Brands
                              on p.BrandId equals b.Id
                              select new ProductDto
@@ -25,7 +23,6 @@ namespace SmartPro.DataAccess.Concrete.EntityFramework
                                  ProductName = p.ProductName,
                                  ProductDescription = p.ProductDescription,
                                  CategoryName = c.CategoryName,
-                                 SubCategoryName = s.SubCategoryName,
                                  BrandName = b.BrandName,
                                  Stock = p.Stock,
                                  Price = p.Price,
