@@ -64,7 +64,7 @@ namespace SmartPro.Business.Concrete.Auth
         {
             var claims = _userService.GetClaims(user);
             var accessToken = _tokenHelper.CreateToken(user, claims);
-            return new SuccessDataResult<AccessToken>(accessToken, "AccessTokenCreated");
+            return new SuccessDataResult<AccessToken>(accessToken, "Signed In "); //AccessTokenCreated
         }
     }
 }

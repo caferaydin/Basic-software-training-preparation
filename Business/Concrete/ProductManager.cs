@@ -1,7 +1,9 @@
 ﻿using SmartPro.Business.Abstraction;
 using SmartPro.Business.BusinessAspects.Autofac;
+using SmartPro.Business.Rules.Validation.Fluent;
 using SmartPro.Core.Aspects.Autofac.Caching;
 using SmartPro.Core.Aspects.Autofac.Performance;
+using SmartPro.Core.Aspects.Autofac.Validation;
 using SmartPro.Core.Utilities.Result;
 using SmartPro.DataAccess.Abstraction;
 using SmartPro.Entities.Concrete;
@@ -54,14 +56,15 @@ namespace SmartPro.Business.Concrete
 
         [CacheRemoveAspect("IProductService.Get")]
         [SecuredOperation("ProductManager,Admin,CustomerProductAdd")]
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult AddProduct(Product product)
         {
             _productDal.Add(product);
             return new SuccessResult("Added!");
         }
-        
+         
         [CacheRemoveAspect("IProductService.Get")]
-        [SecuredOperation("ProductManager,Admin,CustomerProductAdd")]
+        //[SecuredOperation("ProductManager,Admin,CustomerProductAdd")]
         public IResult UpdateProduct(Product product)
         {
             var result = _productDal.GetAll(p => p.Id == product.Id).Count;
@@ -71,7 +74,7 @@ namespace SmartPro.Business.Concrete
         }
         
         [CacheRemoveAspect("IProductService.Get")]
-        [SecuredOperation("ProductManager,Admin,CustomerProductAdd")]
+        //[SecuredOperation("ProductManager,Admin,CustomerProductAdd")]
         public IResult DeleteProduct(Product product)
         {
             var result = _productDal.GetAll(p=>p.Id == product.Id).Count;

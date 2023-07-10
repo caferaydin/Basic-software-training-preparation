@@ -1,10 +1,8 @@
 using Autofac;
-using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using SmartPro.Business.DependencyResolvers;
-using SmartPro.Core.CrossCuttingConcerns.Caching.Microsoft;
 using SmartPro.Core.DependencyResolvers;
 using SmartPro.Core.Extensions;
 using SmartPro.Core.Utilities.IoC;
@@ -63,7 +61,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-} 
+}
+app.ConfigureCustomExceptionMiddleware(); // Custom Middleware
 
 app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 app.UseHttpsRedirection();

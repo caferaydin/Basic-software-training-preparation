@@ -13,6 +13,5 @@ namespace SmartPro.Core.CrossCuttingConcerns.Validation
                 throw new ValidationException(result.Errors);
             }
         }
-
     }
 }

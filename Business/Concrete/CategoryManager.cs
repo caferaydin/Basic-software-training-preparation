@@ -32,7 +32,7 @@ namespace SmartPro.Business.Concrete
         }
 
 
-        [SecuredOperation("CategoryManager,Admin")]
+        //[SecuredOperation("CategoryManager,Admin")]
         [CacheRemoveAspect("ICategoryService.Get")]
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult AddCategory(Category category)
@@ -41,7 +41,7 @@ namespace SmartPro.Business.Concrete
             return new SuccessResult("Added");
         }
 
-        [SecuredOperation("CategoryManager,Admin")]
+        //[SecuredOperation("CategoryManager,Admin")]
         [CacheRemoveAspect("ICategoryService.Get")]
         public IResult Update(Category category)
         {
@@ -51,7 +51,7 @@ namespace SmartPro.Business.Concrete
             return new SuccessResult("Updated");
 
         }
-        [SecuredOperation("CategoryManager,Admin")]
+        //[SecuredOperation("CategoryManager,Admin")]
         [CacheRemoveAspect("ICategoryService.Get")]
         public IResult Delete(Category category)
         {
