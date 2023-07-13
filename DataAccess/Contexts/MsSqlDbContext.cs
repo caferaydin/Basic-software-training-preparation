@@ -6,9 +6,8 @@ namespace SmartPro.DataAccess.Contexts
 {
     public class MsSqlDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MsSqlDbContext(DbContextOptions option): base(option)
         {
-            optionsBuilder.UseSqlServer("Data Source=CAFERAYDIN;Initial Catalog=Education;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
         public DbSet<Category> Categories { get; set; }

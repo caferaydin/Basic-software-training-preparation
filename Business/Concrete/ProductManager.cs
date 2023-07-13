@@ -26,6 +26,7 @@ namespace SmartPro.Business.Concrete
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), "List of Product");
         }
+
         [PerformanceAspect(10)]
         [CacheAspect]
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
