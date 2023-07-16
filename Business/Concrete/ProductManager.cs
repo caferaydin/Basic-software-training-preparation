@@ -7,7 +7,7 @@ using SmartPro.Core.Aspects.Autofac.Validation;
 using SmartPro.Core.Utilities.Result;
 using SmartPro.DataAccess.Abstraction;
 using SmartPro.Entities.Concrete;
-using SmartPro.Entities.DTO;
+using SmartPro.Entities.DTO.Product;
 
 namespace SmartPro.Business.Concrete
 {

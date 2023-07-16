@@ -5,7 +5,9 @@ namespace SmartPro.Entities.Concrete
 {
     public class Category : BaseEntity, IEntity
     {
-        public int UpId { get; set; }
-        public string? CategoryName { get; set; }
+        public string Name { get; set; }
+        public int? ParentCategoryId { get; set; }
+        public List<Category>? Subcategories { get; set; }
+
     }
 }

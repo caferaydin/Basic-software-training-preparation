@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using SmartPro.DataAccess.Configurations;
+//using SmartPro.DataAccess.Configurations;
 using SmartPro.DataAccess.Contexts;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace SmartPro.DataAccess
     {
         public static void AddRegistrationService(this IServiceCollection services)
         {
-            services.AddDbContext<MsSqlDbContext>(option => option.UseSqlServer(Configuration.ConnectionString));
+            //services.AddDbContext<MsSqlDbContext>(option => option.UseSqlServer(Configuration.ConnectionString));
         }
     }
 }

@@ -2,7 +2,7 @@
 using SmartPro.DataAccess.Abstraction;
 using SmartPro.DataAccess.Contexts;
 using SmartPro.Entities.Concrete;
-using SmartPro.Entities.DTO;
+using SmartPro.Entities.DTO.Product;
 
 namespace SmartPro.DataAccess.Concrete.EntityFramework
 {
@@ -22,7 +22,7 @@ namespace SmartPro.DataAccess.Concrete.EntityFramework
                                  Id = p.Id,
                                  ProductName = p.ProductName,
                                  ProductDescription = p.ProductDescription,
-                                 CategoryName = c.CategoryName,
+                                 CategoryName = c.Name,
                                  BrandName = b.BrandName,
                                  Stock = p.Stock,
                                  Price = p.Price,

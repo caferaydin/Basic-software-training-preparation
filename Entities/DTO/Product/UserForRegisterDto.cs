@@ -1,6 +1,6 @@
 ﻿using SmartPro.Core;
 
-namespace SmartPro.Entities.DTO
+namespace SmartPro.Entities.DTO.Product
 {
     public class UserForRegisterDto : IDto
     {

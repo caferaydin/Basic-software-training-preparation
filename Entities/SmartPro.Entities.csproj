@@ -10,4 +10,8 @@
     <ProjectReference Include="..\SmartPro.Core\SmartPro.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\Brand\" />
+  </ItemGroup>
+
 </Project>

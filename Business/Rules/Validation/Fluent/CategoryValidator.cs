@@ -7,8 +7,8 @@ namespace SmartPro.Business.Rules.Validation.Fluent
     {
         public CategoryValidator()
         {
-            RuleFor(c => c.CategoryName).NotEmpty();
-            RuleFor(c => c.CategoryName).MinimumLength(2);
+            RuleFor(c => c.Name).NotEmpty();
+            RuleFor(c => c.Name).MinimumLength(2);
         }
     }
 }

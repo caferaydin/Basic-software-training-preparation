@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartPro.Business.Abstraction.Auth;
-using SmartPro.Entities.DTO;
+using SmartPro.Entities.DTO.Product;
 
 namespace SmartPro.API.Controllers
 {

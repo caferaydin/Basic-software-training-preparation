@@ -1,7 +1,7 @@
 ﻿using SmartPro.Core.Entities.Concrete.Roles;
 using SmartPro.Core.Utilities.Result;
 using SmartPro.Core.Utilities.Security.JWT;
-using SmartPro.Entities.DTO;
+using SmartPro.Entities.DTO.Product;
 
 namespace SmartPro.Business.Abstraction.Auth
 {
