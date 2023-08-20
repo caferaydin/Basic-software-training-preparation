@@ -4,7 +4,7 @@ using SmartPro.Entities.Concrete;
 
 namespace SmartPro.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] // https://localhost/api/Categories
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -15,13 +15,13 @@ namespace SmartPro.API.Controllers
             _categoryService = categoryService;
         }
 
-        [HttpGet("getAll")]
+        [HttpGet("getAll")]  // https://localhost/api/Categories/getAll
         public IActionResult GetCategories()
         {
             var categories = _categoryService.GetCategories();
             return Ok(categories);
         }
-        [HttpGet("getById/{id}")]
+        [HttpGet("getById/{id}")]// https://localhost/api/Categories/getById/1
         public IActionResult GetById(int id)
         {
             var category = _categoryService.GetById(id);
